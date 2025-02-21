@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+</head>
+<body>
+    <form id="form">
+        <input type="email" name="email" placeholder="Email" >
+        <input type="password" name="password" placeholder="Password" >
+        <input type="submit" name="submit" id="submit">
+    </form>
+
+    <script>
+        const form = document.getElementById("form");
+        const submitBtn = document.getElementById("submit");
+
+        form.addEventListener("submit", (event)=> {
+            event.preventDefault();
+
+            let formData = new FormData(form);
+            let formObjects = {}
+
+            formData.forEach((value, key) => {
+                formData[key] = value
+            });
+
+            console.log(formData)
+
+            if(formObjects.email != "" && formObjects.password != ""){
+                fetch('http://localhost:8000/api/register', {
+                    method: 'POST',
+                    headers:{
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData),
+                })
+                .then(response => response.json()
+                .then(response => {
+
+                    if(response.success != false){
+                        console.log(response.message);
+                    }
+                })
+                .catch(error => console.log(error)));
+            }else{
+                console.log("not going")
+            }
+
+            console.log("Default behaviour prevented.")
+        })
+    </script>
+
+</body>
+</html>

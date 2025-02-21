@@ -1,0 +1,8 @@
+:root{
+    --primaryColor: #1A202C;
+    --secondaryColor: #4299E1;
+    --whiteBackgroundColor: #ffff;
+    --section2primaryColor: #F7FAFC;
+    --toogleBarBackgroundColor: #DBE8EB;
+    --fastTransition: .5s;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <form action="">
+        <input type="file" name="" id="">
+        <input type="submit" name="" id="">
+    </form>
+
+    <script>
+        const file = document.querySelector('input[type="file"]');
+
+        file.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append("name", "Barrin")
+            console.log(formData)
+            fetch('http://localhost:8000/api/project/id', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        });
+    </script>
+
+</body>
+</html>

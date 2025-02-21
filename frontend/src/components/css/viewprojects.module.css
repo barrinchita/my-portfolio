@@ -1,0 +1,170 @@
+:root {
+  --primaryColor: #1a202c;
+  --secondaryColor: #4299e1;
+  --whiteBackgroundColor: #ffff;
+  --section2primaryColor: #f7fafc;
+  --toogleBarBackgroundColor: #dbe8eb;
+  --fastTransition: 0.5s;
+}
+
+body {
+}
+
+.viewProject {
+  color: white;
+  background-color: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 20px; */
+}
+
+/* .projectHeader {
+  background-color: rgb(0, 102, 255);
+} */
+
+.projectTitle{
+    width: 40em;
+    padding-bottom: .5em;
+    border-bottom: 2px solid green;
+}
+
+.projectHeader h1 {
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+}
+
+.projectHeader img {
+  width: 4em;
+  height: 4em;
+  border-radius: 50%;
+}
+
+.projectParticipants{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin-top: 1em;
+}
+
+.projectParticipants div{
+    background-color: var(--secondaryColor);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin: 0 10px; */
+    gap: .5em;
+}
+
+.projectStatus{
+    padding-top: 1em;
+    width: 68em;
+}
+
+.projectStatus p{
+    width: 40em;
+    text-align: left;
+    line-height: 1.5em;
+    font-size: 17px;
+}
+
+/* .projectDescription{
+    background-color: pink;
+} */
+
+.projectDescription h3{
+    padding-bottom: .5em;
+    font-size: 1.5em;
+}
+
+.projecttalk h4{
+    padding-top: 1em;
+    padding-bottom: .5em;
+    font-size: 1.5em;
+}
+
+.projecttalk img{
+    border-radius: 0%;
+    width: 40em;
+    height: 20em;
+}
+
+.projecttalk p{
+    width: 38em;
+    text-align: left;
+    padding-top: 1em;
+    line-height: 1.5em;
+    font-size: 17px;
+}
+
+.projectConclusion{
+    padding-top: 1em;
+}
+
+/* project details */
+
+.projectDetails{
+    background-color: white;
+    color: black;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 13em;
+
+    position: absolute;
+    right: 8em;
+    top: 8.2em;
+}
+
+.projectDetails h3{
+    font-size: 1.3em;
+    padding-bottom: .5em;
+}
+
+.projectDetails img{
+    width: 3em;
+}
+
+.projectTechnologies{
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+    font-weight: 600;
+}
+
+/* mobile screen sizes */
+
+@media screen and (max-width: 600px){
+    .projectTitle{
+        width: 20em;
+    }
+
+    .projectTitle h3{
+        font-size: 17px;
+        text-align: center;
+    }
+
+    .viewProject p{
+        width: 19em;
+        text-align: justify;
+    }
+
+    .projectDetails{
+        width: 15em;
+        margin: 1em 0;
+        right: 5em;
+        position: static;
+    }
+
+    .projectStatus{
+        width: 20em;
+    }
+
+    .projecttalk img{
+        width: 20em;
+        height: 10em;
+    }
+}

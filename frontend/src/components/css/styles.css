@@ -1,0 +1,22 @@
+.scale{
+    background-color: magenta;
+    transition: 1s ease-in-out;
+    animation-name: scale;
+    animation-duration: 1.5s;
+}
+
+@keyframes scale {
+    0%{
+        transform: scale(1);
+    }50%{
+        transform: scale(1.4);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+/* .unscale{
+    transform: scale(1);
+    transition: 1s ease-in-out;
+} */
