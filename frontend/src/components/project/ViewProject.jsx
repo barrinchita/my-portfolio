@@ -30,7 +30,7 @@ function ViewProject() {
           throw new Error("Network response was not ok");
         }
         const data = await response.json();
-        console.log(data.data.imgIds.participantImage[0].participantImage);
+        console.log(data);
         setProject(data.data);
         setLoading(false);
       } catch (error) {
@@ -55,14 +55,14 @@ function ViewProject() {
     <div className={styles.viewProject}>
       <div className={styles.projectHeader}>
         <div className={styles.projectTitle}>
-          <h1>{project.title || "Title of the project goes here"}</h1>
+          <h1>{project.projectTitle[0].title || "Title of the project goes here"}</h1>
           <div className={styles.projectParticipants}>
 
             {
-              project.imgIds.participantImage?.map((participant, index) => (
+              project.participants?.map((participantImage, index) => (
                 <div key={index}>
-                  <img src={`../../../uploads/${participant.participantImage}`} alt="" />
-                  <h3>{project.participants[index].participantName || 'Bar'}</h3>
+                  <img src={`../../../uploads/${participantImage.participantImage}`} alt="" />
+                  {/* <h3>{participant.pa || 'Bar'}</h3>  */}
                 </div>
               )) || []
             }
@@ -76,13 +76,15 @@ function ViewProject() {
             <p>{project.projectOverview?.[0]?.overview || 'No overview available'}</p>
           </div>
 
-          {project.imgIds.textImage?.map((textImage, index) => (
-            <div className={styles.projecttalk} key={index}>
-              <h4>{textImage.imageTitle}</h4>
-              <img src={`../../../uploads/${textImage.imageName}`} alt="" />
-              <p>{textImage.imageDescription}</p>
-            </div>
-          ))}
+          {
+            project.participants?.map((participantImage, index) => (
+              <div className={styles.projecttalk} key={index}>
+                <h4>{participantImage.imageTitle}</h4>
+                <img src={`../../../uploads/${participantImage.participantImage}`} alt="" />
+                <p>{participantImage.imageDescription}</p>
+              </div>
+            ))
+          }
 
           <div className={styles.projectConclusion}>
             <p>{project.conclusion?.[0]?.conclusion || 'No conclusion available'}</p>

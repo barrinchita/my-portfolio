@@ -39,8 +39,8 @@ const Dashboard = ({ projects, skills }) => {
 
   const [loading, setLoading] = useState(true);
   const [counts, setCounts] = useState({projects: 0, skills: 0});
-  const [projectTitle, setProjectTitle] = useState([])
-  const [skillTitle, setSkillTitle] = useState([])
+  const [projectTitle, setProjectTitle] = useState([]);
+  const [skillTitle, setSkillTitle] = useState([]);
 
   useEffect(() => {
     const getProject = async () => {

@@ -1,295 +1,89 @@
-:root{
-    --primaryColor: #1A202C;
-    --secondaryColor: #4299E1;
-    --whiteBackgroundColor: #ffff;
-    --section2primaryColor: #F7FAFC;
-    --toogleBarBackgroundColor: #DBE8EB;
-    --fastTransition: .5s;
+
+:root {
+  --primaryColor: #1a202c;
+  --secondaryColor: #4299e1;
+  --whiteBackgroundColor: #ffff;
+  --section2primaryColor: #f7fafc;
+  --toogleBarBackgroundColor: #dbe8eb;
+  --fastTransition: 0.5s;
 }
 
 /* aside styling */
 
-.asideCon{
-    background-color: var(--primaryColor);
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    color: white;
-    font-size: 20px;
-    height: 30em;
-    width: 8em;
-    padding-left: 10px;
+.asideCon {
+  background-color: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  color: white;
+  font-size: 20px;
+  height: 30em;
+  width: 8em;
+  padding-left: 10px;
 
-    position: fixed;
+  position: fixed;
 }
 
-.asideCon .link{
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
+.asideCon .link {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
 }
 
 /* upload page or add project page styling */
 
-.uploadAllDiv{
+.uploadMain {
+  height: 20em;
+  padding-left: 12em;
+  padding-top: 2em;
+}
+
+.uploadImageFile {
+  border-radius: 2px solid gray;
+  height: 4em;
+  background-color: orange;
+}
+
+.fileUpload {
+  display: none;
+}
+
+.uploadImageMainDiv{
+    display: flex;
+}
+
+.uploadImageDiv {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  height: 10em;
+  width: 18em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.uploadImageDiv:hover {
+  background-color: #45a049;
+}
+
+.uploadButtons{
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.uploadMetaData{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    transition: 1s;
-}
-
-.toogleBtn{
-    border: none;
-    color: white;
-    background-color: rgb(17, 17, 73);
-    width: 2em;
-    height: 2em;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    font-weight: 900;
-    font-size: 20px;
-}
-
-.uploadHead{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 30em;
-    padding: .3em 0;
-    border-bottom: 2px solid green;
-    cursor: pointer;
-}
-
-.projectTitle{
-    width: 30em;
-    display: flex;
-    flex-direction: column;
-    gap: .7em;
-    padding-bottom: .3em;
-    border-bottom: 2px solid green;
-}
-
-.projectTitle input, .projectTitle select{
-    width: 70%;
-}
-
-.participants{
-    display: flex;
-    /* flex-direction: column; */
-    width: 30em;
-    gap: 14.5em;
-}
-
-/* .participantInfo{
-    background-color: red;
-} */
-
-.participantInfo p{
-    height: 5em;
-    width: 5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.participantInfo p input{
-    background-color: aqua;
-    height: inherit;
-    width: 10em;
-    margin-left: 4em;
-}
-
-.participantInfo .participantInp{
-    margin-top: 1em;
-}
-
-.participants div button, .additionalBtns button, .stacksHead button{
-    height: 2em;
-    width: 6em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--whiteBackgroundColor);
-    background-color: var(--primaryColor);
-    border: none;
-}
-
-/* stacks */
-
-.projectStacks{
-    width: 30em;
-    border-bottom: 1px solid blue;
-}
-
-.stacksHead{
-    display: flex;
-    justify-content: space-between;
-}
-
-.projectStacks input{
-    margin-bottom: .5em;
-}
-
-.additionalInfo{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 30em;
-    margin-bottom: 1em;
-}
-
-.additionalBtns{
-    display: flex;
-    gap: 1em;
-    justify-content: flex-start;
-}
-
-.additionalBtns button{
-    width: 9em;
-    gap: .3em;
-}
-
-/* codebase */
-
-.codebase{
-    width: 30em;
-}
-
-.codebaseHead{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.codebaseTitle{
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid ;
-}
-
-.codebaseTitle h3{
-    margin-bottom: .3em;
-}
-
-.codebaseBtns{
-    display: flex;
-    justify-content: end;
-    gap: 1em;
-}
-
-.codebaseBtns button{
-    height: 2em;
-    width: 10em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    gap: .3em;
-    color: var(--whiteBackgroundColor);
-    background-color: var(--primaryColor);
-    border: none;
-}
-
-.codebaseTI{
-    margin-top: 1em;
-    border-bottom: 2px solid blue;
-}
-
-.belowCodebase{
-    margin-top: 1em;
-    border-bottom: 3px solid blue;
-}
-
-.codebaseTI div div{
-    display: flex;
-}
-
-.codebaseTI div p{
-    width: 10em;
-    height: 5em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: magenta;
-}
-
-.codebaseTI div input{
-    height: 1.5em;
-}
-
-.codebaseTI textarea{
-    height: 5em;
-    width: 97%;
-    margin-top: 1em;
-    padding: .3em;
-    font-size: 15px;
-    font-family: 'Segoe UI', Verdana, sans-serif;
-    margin-bottom: .5em;
-}
-
-.endBtns{
-    display: flex;
-    justify-content: end;
-    gap: 2em;
-    padding: .5em;
-    position: fixed;
-    width: 95%;
-    top: 90vh;
-}
-
-.endBtns button{
-    background-color: rgb(18, 18, 139);
-    color: white;
-    width: 5em;
-    height: 2em;
-    display: flex;
-    align-items: center;
-    border: none;
-}
-
-.red{
-    background-color: red;
-}
-
-/* project types styling */
-
-.skillsCon{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    padding-top: 2em;
     padding-left: 2em;
-    align-items: center;
+    gap: 1em;
 }
 
-.skillsCon div{
-    display: flex;
-    flex-direction: column;
-    gap: .4em;
-}
-
-.frameworkDiv{
-    display: flex;
-    flex-direction: row;
-}
-
-.skillsCon input{
-    width: 20em;
-    padding: .2em;
-    font-size: 15px;
-    border: none;
-    border-radius: 4px;
-    box-shadow: 1px 1px 2px 1px rgb(0, 0, .1);
-}
-
-.skillsCon button{
-    padding: .2em;
+.uploadButtons button{
     color: black;
+}
+
+.imgIcon{
+  width: 5em;
+  border-radius: 50%;
 }
