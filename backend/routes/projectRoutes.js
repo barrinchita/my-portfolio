@@ -1,5 +1,5 @@
 import express from 'express';
-import { postProject, upload } from '../controllers/projectControllers/postProject.js';
+import CreateProject from '../controllers/projectControllers/createprojects.js';
 import getProjects from '../controllers/projectControllers/getProjects.js';
 import createProjectType from '../controllers/projectControllers/createProjectType.js';
 import getProjectTpe from '../controllers/projectControllers/getProjectTypes.js';
@@ -12,7 +12,7 @@ const projectRoutes = express.Router();
 
 projectRoutes.get('/', getProjects);
 
-projectRoutes.post('/create', upload.array('image', 10), postProject);
+projectRoutes.post('/create', CreateProject);
 
 projectRoutes.post('/addProjectType', createProjectType);
 

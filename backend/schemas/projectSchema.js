@@ -1,58 +1,28 @@
 import mongoose from "mongoose";
 
-// Define the schema for the project
-const projectSchema = new mongoose.Schema({
-  imgIds: {
-     type: mongoose.Schema.Types.ObjectId, ref: "projectImages",
-  },
-
-  projectTitle: [
-    {
-      title: { type: String },
-    },
-  ],
-  projectOverview: [
-    {
-      overview: { type: String },
-    },
-  ],
-  participants: [
-    {
-      participantName: { type: String },
-    },
-  ],
-  projectType: [
-    {
-      type: { type: String },
-    },
-  ],
-  stacks: [
-    {
-      stack: { type: String },
-    },
-  ],
-  githubRepo: [
-    {
-      repo: { type: String },
-    },
-  ],
-  websitelink: [
-    {
-      link: { type: String },
-    },
-  ],
-  textImage: [
-    {
-      imageTitle: { type: String },
-      imageDescription: { type: String },
-    },
-  ],
-  conclusion: [
-    {
-      conclusion: { type: String },
-    },
-  ],
+const imageSchema = new mongoose.Schema({
+  id: { type: String },
+  imagePath: { type: String, required: true },
+  imageDescription: { type: String },
 });
+
+const stackSchema = new mongoose.Schema({
+  name: { type: String, required: true },
+  descripition: { type: String },
+});
+
+const projectSchema = new mongoose.Schema({
+  projectTitle: { type: String, required: true },
+  projectType: { type: String, required: true },
+  image: { type: [imageSchema], required: true },
+  stack: { type: [stackSchema], required: true },
+  websiteLink: { type: String },
+  githubRepo: { type: String },
+  datePosted: { type: Date, default: Date.now },
+});
+
+export const Project = mongoose.model("Project", projectSchema);
+
 
 const projectType = new mongoose.Schema({
   skillname: [
@@ -100,5 +70,3 @@ const projectImages = mongoose.Schema({
 export const ImagesModel = mongoose.model("projectImages", projectImages);
 
 export const ProjectTypes = mongoose.model("projectType", projectType);
-
-export const Project = mongoose.model("Project", projectSchema);
