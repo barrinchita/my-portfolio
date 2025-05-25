@@ -64,3 +64,33 @@ export const countProject = async () => {
     return { projects: 0, skills: 0 };
   }
 };
+
+// function to delete images from the vps.
+
+export const deleteImage = async (filename) => {
+  try {
+    const response = await fetch(`http://localhost:8000/api/project/deleteImage/${filename}`, {
+      method: "DELETE"
+    });
+
+    if(response.ok ){
+      const data = await response.json();
+      return {
+        status: true,
+        message: data.message
+      }
+    }else{
+      return {
+      status: false,
+      message: "Error deleting image"
+    }
+    }
+
+  } catch (error) {
+    console.log(error)
+    return {
+      status: false,
+      message: "Error deleting image"
+    }
+  }
+}

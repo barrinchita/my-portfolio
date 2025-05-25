@@ -33,9 +33,12 @@
 /* upload page or add project page styling */
 
 .uploadMain {
-  height: 20em;
-  padding-left: 12em;
+  height: 60em;
   padding-top: 2em;
+  width: 80%;
+  position: absolute;
+  left: 11em;
+  top: 10em;
 }
 
 .uploadImageFile {
@@ -86,4 +89,162 @@
 .imgIcon{
   width: 5em;
   border-radius: 50%;
+}
+
+.descriptionDiv{
+  margin-top: 1em;
+}
+
+.descriptionDiv textarea{
+  margin-top: 1em;
+  border: 1px solid gray;
+  padding: 1em;
+  font-size: 16px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.carouselLable{
+   background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: inline-block;
+  height: 7em;
+  width: 10em;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.carouselImagesDiv{
+  background-color: gray;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+  width: 30em;
+  gap: 1em;
+  padding: .5em 0;
+  box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.5);
+}
+
+.carouselImagesDiv img{
+  height: 13em;
+}
+
+.carouselImagesDiv div{
+  display: flex;
+  flex-direction: column;
+  background-color: orange;
+  width: 20em;
+}
+
+/* styles from chat */
+
+.uploadMain {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background: #f5f6fa;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.formSection,
+.stackSection,
+.uploadImageMainDiv,
+.carouselImagesDiv {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.removeBtn {
+  background-color: red;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.imgIcon {
+  width: 40px;
+  height: 40px;
+  opacity: 0.6;
+}
+
+.uploadImageDiv,
+.carouselLable {
+  border: 2px dashed #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+.previewImage img,
+.carouselItem img {
+  max-width: 100%;
+  max-height: 200px;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  animation: spin 0.8s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.submitButton {
+  background-color: #28a745;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 1rem;
+  align-self: flex-start;
+  width: 10em;
+}
+.submitButton:hover {
+  background-color: #218838;
 }
