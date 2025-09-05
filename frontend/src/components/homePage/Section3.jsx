@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-
+import React, { useEffect, useState } from "react";
+import getServices from "../JS/getServices";
 import Hireme from "./Hireme";
 
 import { FaHockeyPuck } from "react-icons/fa";
@@ -9,6 +9,8 @@ import { FaChevronLeft } from "react-icons/fa";
 import projectImg from "../../assets/web1.jpeg";
 
 function Section3() {
+
+  const [services, setServices] = useState([]);
 
     useEffect(() => {
 
@@ -27,6 +29,18 @@ function Section3() {
         }, {
             threshold: 0.6
         });
+
+        // use the getServices function to fetch services
+        const fetchServices = async () => {
+            const response = await getServices();
+            console.log("response", response);
+            if (response && response.data) {
+                console.log('Services fetched:', response.data);
+                setServices(response.data);
+            }
+        }
+
+        fetchServices();
     
         const hidden = document.querySelectorAll('.hidden div');
         hidden.forEach((el) => observer.observe(el));
@@ -40,37 +54,13 @@ function Section3() {
         </div>
 
         <div className={`${styles.servicesDiv} hidden`}>
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
-        
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
-          <div className={styles.service}>
-            <img src={projectImg} alt="" />
-            <h3>UI/UX DESIGNER</h3>
-            <p>Small description of the IT service goes here</p>
-          </div>
+          {services.map((service, index) => (
+            <div className={styles.service} key={index}>
+              <img src={service.serviceImage} alt="" />
+              <h3> {service.serviceName} </h3>
+              <p> { service.serviceDescription }  </p>
+            </div>
+          ))}
         </div>
       </div>
 

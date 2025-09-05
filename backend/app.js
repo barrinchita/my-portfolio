@@ -5,6 +5,8 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { fileURLToPath } from 'url';
+import bcrypt from "bcrypt"
+
 
 // middlewares imports
 import authenticate from './middlewares/verifyAuthTokenMiddleware.js';
@@ -31,20 +33,31 @@ app.use(express.json());
 
 // cors
 
-app.use(cors({
-  origin: (origin, callback) => {
-    callback(null, true); // Dynamically allow all origins
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true, // Needed for authentication (cookies, JWT, etc.)
-}));
+// app.options('*', cors());
+
+const corsOptions = {
+  origin: 'http://localhost:5173',
+  methods: ['GET', 'POST', 'DELETE', 'PUT'],
+  allowHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}
+
+app.use(cors(corsOptions))
+
+// app.use(cors({
+//   origin: (origin, callback) => {
+//     callback(null, true); // Dynamically allow all origins
+//   },
+//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//   // credentials: true, 
+// }));
 
 // creating an authentication middleware
 
 
 // creating a connection to mongoDb
 mongoose
-  .connect("mongodb://localhost/portfolio")
+  .connect("mongodb://127.0.0.1:27017/portfolio")
   .then(() => {
     console.log("connection created");
   })
@@ -52,6 +65,12 @@ mongoose
     console.log(`Error connecting to db, Error: ${e}`);
     res.status(500).json({failure: "Data base error"})
   });
+
+  const getpass = async ()=>{
+    console.log(await bcrypt.hash("myPassword", 13))
+  }
+
+  getpass()
 
 
 app.use(logger)

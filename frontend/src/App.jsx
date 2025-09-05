@@ -21,6 +21,7 @@ import Login from "./components/Login";
 // admin components imports
 
 import Upload from "./components/admin/Upload";
+import Services from "./components/admin/Services.jsx";
 
 import "./app.css";
 import ProjectType from "./components/admin/ProjectType";
@@ -98,6 +99,15 @@ function App() {
               element={
                 <ProtectedRoutes>
                   <Upload />
+                </ProtectedRoutes>
+              }
+            />
+
+            <Route
+              path="/admin/services"
+              element={
+                <ProtectedRoutes>
+                  <Services />
                 </ProtectedRoutes>
               }
             />

@@ -4,6 +4,8 @@ import { FaGoogle } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
 
+import getEnv from "./JS/env";
+
 import LogStatus from "./admin/LogStatus";
 
 import { useAuth } from "../ProtectedRoutes";
@@ -34,11 +36,11 @@ function Login() {
   useEffect(() => {
     if (send) {
       if (isFormValid()) {
-        console.log(login);
         const fetchLogin = async () => {
           try {
+            console.log(`${getEnv().REACT_APP_API_URL}/auth/login`)
             const response = await fetch(
-              "http://localhost:8000/api/auth/login",
+              `${getEnv().REACT_APP_API_URL}/auth/login`,
               {
                 method: "POST",
                 headers: {

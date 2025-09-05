@@ -1,3 +1,5 @@
+import getEnv from "../JS/env";
+
 export const toggleProject = (e, toggleState, toggleDiv) => {
   let metaData = e.target.closest(`#${toggleDiv}`);
   if (toggleState) {
@@ -15,12 +17,12 @@ export const validateImage = async (image) => {
     const target = image.type.split("/").pop();
 
     if (!allowedFormat.includes(target)) {
-      return {status: false, message: "Image format not supported"};
+      return { status: false, message: "Image format not supported" };
     }
 
     let size = image.size;
-    if (((size / 1024) / 1024) > 5) {
-      return {status: false, message: "image size is way too big."};
+    if (size / 1024 / 1024 > 5) {
+      return { status: false, message: "image size is way too big." };
     }
 
     const newName = "IMG-" + image.name;
@@ -30,28 +32,29 @@ export const validateImage = async (image) => {
       lastModified: image.lastModified,
     });
 
-    return {status: true, message: renamedFile};
+    return { status: true, message: renamedFile };
   } catch (error) {
     console.log("An error happened while processing image");
-    return {status: false, message: "Error processing image"};
+    return { status: false, message: "Error processing image" };
   }
 };
 
 export const sendError = (setError, message) => {
   setError((prevError) => ({
     ...prevError,
-    status: true, message: message
-  }))
-}
+    status: true,
+    message: message,
+  }));
+};
 
 // get project and skills count
 
 export const countProject = async () => {
-  console.log('in counproject function ')
+  console.log("in counproject function ");
   try {
-    const response = await fetch('/api/projectCount');
+    const response = await fetch(`${getEnv().REACT_APP_API_URL}/project/projectCount`);
     // const skillsResponse = await fetch('/api/skills');
-    
+
     const projects = await response.json();
     // if(response)
     // console.log(projects)
@@ -60,7 +63,7 @@ export const countProject = async () => {
       projects: projects.length,
     };
   } catch (error) {
-    console.error('Error fetching counts:', error);
+    console.error("Error fetching counts:", error);
     return { projects: 0, skills: 0 };
   }
 };
@@ -69,28 +72,48 @@ export const countProject = async () => {
 
 export const deleteImage = async (filename) => {
   try {
-    const response = await fetch(`http://localhost:8000/api/project/deleteImage/${filename}`, {
-      method: "DELETE"
-    });
+    const response = await fetch(
+    `${getEnv().REACT_APP_API_URL}/project/deleteImage/${filename}`,
+      {
+        method: "DELETE",
+      }
+    );
 
-    if(response.ok ){
+    if (response.ok) {
       const data = await response.json();
       return {
         status: true,
-        message: data.message
-      }
-    }else{
+        message: data.message,
+      };
+    } else {
       return {
-      status: false,
-      message: "Error deleting image"
+        status: false,
+        message: "Error deleting image",
+      };
     }
-    }
-
   } catch (error) {
-    console.log(error)
+    console.log(error);
     return {
       status: false,
-      message: "Error deleting image"
-    }
+      message: "Error deleting image",
+    };
   }
-}
+};
+
+// function to get all project types(categories) in the system.
+
+export const projectCategories = async () => {
+  try {
+    const response = await fetch(
+      `${getEnv().REACT_APP_API_URL}/project/getProjectTypes`
+    );
+
+    const data = await response.json();
+    if (response.ok && data.status != false) {
+      return data;
+    }
+  } catch (err) {
+    console.log("Error while fetching project categories.");
+    return {};
+  }
+};

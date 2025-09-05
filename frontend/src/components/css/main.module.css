@@ -1,877 +1,1067 @@
-:root{
-    --primaryColor: #1A202C;
-    --secondaryColor: #4299E1;
-    --whiteBackgroundColor: #ffff;
-    --section2primaryColor: #F7FAFC;
-    --toogleBarBackgroundColor: #DBE8EB;
-    --fastTransition: .5s;
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+:root {
+  --primaryColor: #1a202c;
+  --secondaryColor: #4299e1;
+  --whiteBackgroundColor: #ffff;
+  --section2primaryColor: #f7fafc;
+  --toogleBarBackgroundColor: #dbe8eb;
+  --fastTransition: 0.5s;
+  --pad: 0 8em;
 }
 
 /* styles for section1 */
 
-.section1{
-    background-color: var(--primaryColor);
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 0 8em;
-    height: 85vh;
+.section1 {
+  background-color: var(--primaryColor);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8em;
+  height: 85vh;
 }
 
-.flexDiv{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: inherit;
+.flexDiv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: inherit;
 }
 
-.welcomeDiv{
-    font-family: Bernard MT;
-    height: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5em;
+.welcomeDiv {
+  font-family: Bernard MT;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5em;
 }
 
-.welcomeDiv h1{
-    font-size: 80px;
-    font-weight: 900;
-    margin-top: -1em;
+.welcomeDiv h1 {
+  font-size: 80px;
+  font-weight: 900;
+  margin-top: -1em;
 }
 
-.welcomeDiv h2{
-    font-size: 40px;
+.welcomeDiv h2 {
+  font-size: 40px;
 }
 
-.mark{
-    background-color: transparent;
-    color: var(--secondaryColor);
+.mark {
+  background-color: transparent;
+  color: var(--secondaryColor);
 }
 
-.welcomeDiv p{
-    font-family: Segoe UI;
-    font-size: 20px;
-    width: 14em;
+.welcomeDiv p {
+  font-family: Segoe UI;
+  font-size: 20px;
+  width: 14em;
 }
 
-.btnsDiv{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.btnsDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 button {
-    background-color: transparent;
-    padding: .7em;
-    width: 7em;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    border: 2px solid #4299E1;
-    font-weight: bold;
-    cursor: pointer;
-    font-size: 15px;
-    transition: var(--fastTransition);
+  background-color: transparent;
+  padding: 0.7em;
+  width: 7em;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid #4299e1;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+  transition: var(--fastTransition);
 }
 
-.cvBtn{
-    background-color: var(--secondaryColor);
+.cvBtn {
+  background-color: var(--secondaryColor);
 }
 
-.cvBtn:hover{
-    border: 2px solid var(--secondaryColor);
-    background-color: transparent;
+.cvBtn:hover {
+  border: 2px solid var(--secondaryColor);
+  background-color: transparent;
 }
 
-.portfolioBtn{
-    display: flex;
-    gap: .4em;
-    align-items: center;
-    justify-content: center;
+.portfolioBtn {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
 }
 
-.portfolioBtn:hover{
-    background-color: var(--secondaryColor);
+.portfolioBtn:hover {
+  background-color: var(--secondaryColor);
 }
 
-.mainImgDiv img{
-    height: 34em;
+.mainImgDiv {
+  height: 100%;
+  background-color: red;
+  /* position: relative; */
 }
 
-.downBtnDiv{
-    width: 43vw;
-    height: 2em;
-    position: relative;
-    bottom: 4em;
-    display: flex;
-    justify-content: flex-end;
+.mainImgDiv img {
+  height: 85%;
+  margin-top: -7em;
+  transform: scaleX(-1);
+  position: absolute;
+  bottom: 2.5%;
+  right: 10em;
 }
 
-.downBtnDiv p{
-    background-color: var(--secondaryColor);
-    color: var(--primaryColor);
-    font-size: 20px;
-    border: none;
-    height: 1.5em;
-    width: 1.5em;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bolder;
-    cursor: pointer;
-    margin-right: 3em;
+.downBtnDiv {
+  width: 43vw;
+  height: 2em;
+  position: relative;
+  bottom: 4em;
+  display: flex;
+  justify-content: flex-end;
 }
 
-.downBtnDiv p:hover{
-    background-color: var(--secondaryColor);
-    color: white;
-    transition: var(--fastTransition);
+.downBtnDiv p {
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
+  font-size: 20px;
+  border: none;
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bolder;
+  cursor: pointer;
+  margin-right: 3em;
 }
 
-  /* section2 file styling */
-
-  .section2{
-    height: auto;
-    background-color: var(--section2primaryColor);
-    padding: 1em 8em;
+.downBtnDiv p:hover {
+  background-color: var(--secondaryColor);
+  color: white;
+  transition: var(--fastTransition);
 }
 
-.section2Btns{
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    padding-bottom: 1em;
-    margin-top: 1em;
+/* section2 file styling */
+
+.section2 {
+  height: auto;
+  background-color: var(--section2primaryColor);
+  padding: 1em 8em;
 }
 
-.section2Btns button{
-    padding: .2em;
-    color: var(--primaryColor);
-    border: 2px solid var(--secondaryColor);
+.section2Btns {
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  padding-bottom: 1em;
+  margin-top: 1em;
 }
 
-.section2Btns .middleBtn{
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
-    border: none;
-    display: flex;
-    align-items: center;
-    gap: .5em;
-    padding: 0 .6em;
+.section2Btns button {
+  padding: 0.2em;
+  color: var(--primaryColor);
+  border: 2px solid var(--secondaryColor);
 }
 
-.styleProjectBar{
-    display: flex;
-    justify-content: center;
+.section2Btns .middleBtn {
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0 0.6em;
 }
 
-.styleProjectBar .projectBar{
-    width: 22em;
+.styleProjectBar {
+  display: flex;
+  justify-content: center;
 }
 
-.projectBar{
-    background-color: var(--primaryColor);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-    padding: .2em;
+.styleProjectBar .projectBar {
+  width: 22em;
 }
 
-.projectBar h2{
-    font-size: 18px;
+.projectBar {
+  background-color: var(--primaryColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  padding: 0.2em;
 }
 
-.projectBar button{
-    padding: .2em;
-    display: flex;
-    gap: 1em;
-    padding: .2em .4em;
-    align-items: center;
+.projectBar h2 {
+  font-size: 18px;
 }
 
-.allProjects{
-    overflow: hidden;
-    display: flex;
-    gap: 1em;
+.projectBar button {
+  padding: 0.2em;
+  display: flex;
+  gap: 1em;
+  padding: 0.2em 0.4em;
+  align-items: center;
 }
 
-.allProjects .subAllProjects{
-    height: 23em;
-    margin-top: 2em;
-    display: flex;
-    gap: 1em;
-    transition: all 1s;
-    overflow: hidden;
-    
+.allProjects {
+  overflow: hidden;
+  display: flex;
+  gap: 1em;
+  height: 23em;
 }
 
-.project{
-    background-color: var(--primaryColor);
-    color: white;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: .8em;
-    height: 22em;
-    width: 22em;
-    transition: all 1s;
+.allProjects .subAllProjects {
+  height: 100%;
+  margin-top: 2em;
+  display: flex;
+  gap: 1em;
+  transition: all 1s;
+  overflow: hidden;
 }
 
-.project img{
-    height: 14.5em;
-    width: 22em;
+.project {
+  background-color: var(--primaryColor);
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0.8em;
+  height: 22em;
+  width: 22em;
+  transition: all 1s;
 }
 
-.projectBody{
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    padding: .5em;
+.project img {
+  height: 14.5em;
+  width: 22em;
 }
 
-.projectBody h1{
-    width: auto;
-    border-bottom: 2px solid white;
+.projectBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  padding: 0.5em;
 }
 
-.projectBody div{
-    display: flex;
-    justify-content: center;
-    padding-top: .5em;
+.projectBody h1 {
+  width: auto;
+  border-bottom: 2px solid white;
 }
 
-.projectBody div button{
-    padding: .2em;
-    background-color: var(--whiteBackgroundColor);
-    border: none;
-    color: var(--primaryColor);
+.projectBody div {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5em;
+}
+
+.projectBody div button {
+  padding: 0.2em;
+  background-color: var(--whiteBackgroundColor);
+  border: none;
+  color: var(--primaryColor);
 }
 
 /* styling the toggling bar for projects */
 
-.toggleProject{
-    background-color: var(--toogleBarBackgroundColor);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-top: 1em;
-    padding: .5em 0;
+.toggleProject {
+  background-color: var(--toogleBarBackgroundColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-top: 1em;
+  padding: 0.5em 0;
 }
 
-.toggleProject div{
-    display: flex;
-    align-items: center;
-    gap: .8em;
+.toggleProject div {
+  display: flex;
+  align-items: center;
+  gap: 0.8em;
 }
 
-.toggleProject button{
-    background-color: transparent;
-    color: var(--primaryColor);
-    font-size: 16px;
-    border: none;
-    padding: 0;
+.toggleProject button {
+  background-color: transparent;
+  color: var(--primaryColor);
+  font-size: 16px;
+  border: none;
+  padding: 0;
 }
 
-.toggleProject div p{
-    width: 1em;
-    height: 1em;
-    background-color: var(--primaryColor);
-    border-radius: 50%;
+.toggleProject div p {
+  width: 1em;
+  height: 1em;
+  background-color: var(--primaryColor);
+  border-radius: 50%;
 }
 
-.bigToggle{
-    font-size: 20px;
+.bigToggle {
+  font-size: 20px;
 }
 
-.proficientDiv{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
+.proficientDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.proficientDiv .projectBar{
-    margin-top: 1.5em;
-    margin-bottom: 1em;
-    justify-content: center;
-    padding: .5em 0;
+.proficientDiv .projectBar {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+  justify-content: center;
+  padding: 0.5em 0;
 }
 
 .proficientDiv .projectBar h2 {
-    font-size: 20px;
-    font-weight: 900;
+  font-size: 20px;
+  font-weight: 900;
 }
 
-.proficientImgDiv{
-    /* background-color: orange; */
-    /* width: 40vw; */
-    display: flex;
-    justify-content: center;
-    gap: 2em;
+.proficientImgDiv {
+  /* background-color: orange; */
+  /* width: 40vw; */
+  display: flex;
+  justify-content: center;
+  gap: 2em;
 }
 
-.proficientImgDiv div img{
-    box-shadow: 2px 0px 6px 2px rgb(0, 0, 0);
-    width: 14em;
-    height: 10em;
+.proficientImgDiv div img {
+  box-shadow: 2px 0px 6px 2px rgb(0, 0, 0);
+  width: 14em;
+  height: 10em;
 }
 
 /* styling section3 component */
 
-.section3{
-    height: auto;
-    padding: 0 8em;
-    background-color: var(--whiteBackgroundColor);
+.section3 {
+  height: auto;
+  padding: 0 8em;
+  background-color: var(--whiteBackgroundColor);
 }
 
-.serviceAllDiv{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3em;
-    margin-bottom: 2em;
-    color: var(--primaryColor);
+.serviceAllDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3em;
+  margin-bottom: 2em;
+  color: var(--primaryColor);
 }
 
-.serviceBar{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-    margin-top: 2em;
-    color: var(--primaryColor);
-    font-size: 20px;
-    text-transform: capitalize;
+.serviceBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  margin-top: 2em;
+  color: var(--primaryColor);
+  font-size: 20px;
+  text-transform: capitalize;
 }
 
-.serviceInfoDiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 30%;
-    padding: .5em;
-    box-shadow: 1px 2px 4px 1px rgb(76, 75, 75);
-    text-align: center;
-    font-size: 20px;
-    font-weight: bolder;
+.serviceInfoDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+  padding: 0.5em;
+  box-shadow: 1px 2px 4px 1px rgb(76, 75, 75);
+  text-align: center;
+  font-size: 20px;
+  font-weight: bolder;
 }
 
-.serviceInfoDiv p{
-    /* background-color: magenta; */
-    font-size: 25px;
-    font-weight: 900;
-    text-transform: capitalize;
-    text-align: left;
+.serviceInfoDiv p {
+  /* background-color: magenta; */
+  font-size: 25px;
+  font-weight: 900;
+  text-transform: capitalize;
+  text-align: left;
 }
 
-.servicesDiv{
-    margin-top: 2em;
-    display: flex;
-    gap: 2em;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    width: 100%;
+.servicesDiv {
+  margin-top: 2em;
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-.service{
-    /* width: 60em; */
-    padding: .5em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: .5em;
-    box-shadow: 1px 2px 4px 1px rgb(76, 75, 75);
+.service {
+  width: 20em;
+  text-align: justify;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+  box-shadow: 1px 2px 4px 1px rgb(76, 75, 75);
 }
 
-.service:hover{
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
-    transition: var(--fastTransition);
+.service:hover {
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  transition: var(--fastTransition);
 }
 
-.service img{
-    width: 6em;
-    height: 6em;
-    border-radius: 50%;
+.service img {
+  width: 6em;
+  height: 6em;
+  border-radius: 50%;
 }
 
 /* styling for hireme component */
 
-.hireme{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.hireme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.hiremeTextDiv{
-    color: var(--primaryColor);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.hiremeTextDiv {
+  color: var(--primaryColor);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.hiremeTextDiv img{
-    height: 30em;
+.hiremeTextDiv img {
+  height: 30em;
 }
 
-.hiremeText{
-    font-size: 18px;
-    height: 13em;
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: space-between;
+.hiremeText {
+  font-size: 18px;
+  height: 13em;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
 }
 
-.hiremeText h2{
-    text-align: center;
-    font-size: 40px;
+.hiremeText h2 {
+  text-align: center;
+  font-size: 40px;
 }
 
-
-.hirmeBtnDiv{
-    display: flex;
-    justify-content: center;
+.hirmeBtnDiv {
+  display: flex;
+  justify-content: center;
 }
 
-.hirmeBtnDiv button{
-    color: var(--primaryColor);
+.hirmeBtnDiv button {
+  color: var(--primaryColor);
 }
 
 /* sdfd */
 
-.hireForm{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    color: black;
-    height: 101vh;
-    width: 95vw;
-    margin-top: -5em;
-    position: relative;
-    left: -8em;
+.hireForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  color: black;
+  height: 101vh;
+  width: 95vw;
+  margin-top: -5em;
+  position: relative;
+  left: -8em;
 }
 
-.formBgEl{
-    height: 101vh;
-    width: inherit;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-.formPart{
-    background-color: pink;
-    width: 31em;
+.formBgEl {
+  height: 101vh;
+  width: inherit;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.formPart h1{
-    font-size: 20px;
-    text-align: center;
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
+.formPart {
+  background-color: pink;
+  width: 31em;
 }
 
-.formDiv{
-    background-color: orange;
-    padding: .5em;
+.formPart h1 {
+  font-size: 20px;
+  text-align: center;
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
 }
 
-.formDiv div{
-    display: flex;
-    flex-direction: column;
-    width: 30em;
+.formDiv {
+  background-color: orange;
+  padding: 0.5em;
 }
 
-.formDiv label{
-    font-size: 16px;
-    font-weight: 900;
-    padding-bottom: .3em;
+.formDiv div {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
 }
 
-.formDiv input{
-    padding: .5em;
-    border: none;
-    border-bottom: 2px solid var(--primaryColor);
-    border-left: 2px solid var(--primaryColor);
-    font-size: 16px;
+.formDiv label {
+  font-size: 16px;
+  font-weight: 900;
+  padding-bottom: 0.3em;
 }
 
-.formDiv button{
-    width: 10em;
-    margin-top: 1em;
+.formDiv input {
+  padding: 0.5em;
+  border: none;
+  border-bottom: 2px solid var(--primaryColor);
+  border-left: 2px solid var(--primaryColor);
+  font-size: 16px;
 }
 
-.formBtnDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.formDiv button {
+  width: 10em;
+  margin-top: 1em;
 }
 
-.formDiv button:hover{
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
-    transition: 1s;
+.formBtnDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.formDiv button:hover {
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  transition: 1s;
+}
+
+/* section4 styling */
+
+.sec4Div1 {
+  background-color: var(--primaryColor);
+  display: flex;
+  align-items: center;
+  /* gap: 2em; */
+  font-family: lobster, cursive;
+
+  padding: var(--pad);
+  padding-top: 2em;
+}
+
+.sec4Div1 img {
+  height: 35em;
+}
+
+.sec4Div1 div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.sec4Div1 h3,
+.sec4Div1 h2 {
+  font-size: 60px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.sec4Div1 h2 {
+  font-size: 120px;
+}
+
+.sec4Div2 {
+  display: flex;
+  justify-content: space-between;
+  gap: 1em;
+  padding: var(--pad);
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.sec4Div2Div2 {
+  width: 65%;
+  height: 30em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.sec4Div2 img {
+  height: 30em;
+  border-radius: 20px;
+}
+
+.sec4Div2Div2 img {
+  width: 100%;
+  height: 40%;
+}
+
+.sec4Div2Div2Div {
+  display: flex;
+  gap: 1em;
+  height: 60%;
+}
+
+.sec4Div2Div2Div img {
+  width: 40%;
+  height: 100%;
+}
+
+.sec4Div2Div2Div div {
+  width: 60%;
+}
+
+.sec4Div2Div2Div div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+
+.sec4Div2Div2Div div img {
+  width: 100%;
+  height: 48%;
+}
+
+.sec4Div3 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 2em;
+}
+
+.sec4Div3 button {
+  width: 150px;
+  border-radius: none;
+  background-color: var(--primaryColor);
+}
+
+.sec4Div3 button:hover {
+  width: 200px;
+  background-color: var(--secondaryColor);
+  transition: var(--fastTransition);
+}
+
+/* load more functionality styling */
+
+.loadWorkDiv{
+  width: 100%;
+  height: auto;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  position: relative;
+}
+
+.loadWorkDiv img{
+  width: 22em;
+  height: 30em;
+  box-shadow: 2px 0px 6px 2px rgb(0, 0, 0);
+}
+
+.loadWorkDiv p{
+  display: none;
+  width: 22em;
+  text-align: center;
+  text-wrap: wrap;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Segoe UI;
+  color: var(--whiteBackgroundColor);
+  height: 20em;
+  position: absolute;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding-top: 2em;
+  transition: 1s ease-in all;
+}
+
+.loadWorkDiv div{
+  
+}
+
+.loadWorkDiv div:hover p {
+  display: block;  
+}
+
+.loadDiv {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  transition: var(--fastTransition);
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  animation: spin 2s linear infinite;
+  margin: 2em auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to{
+    transform: rotate(360deg);
+  }
+  
+}
+
+.loadP {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000;
 }
 
 /* tablet view design */
 
 @media screen and (max-width: 900px) {
-    .section1{
-        padding: 0 5em;
-        height: 50vh;
-        position: relative;
-    }
+  .section1 {
+    padding: 0 5em;
+    height: 50vh;
+    position: relative;
+  }
 
-    .welcomeDiv h1{
-        font-size: 60px;
-    }
+  .welcomeDiv h1 {
+    font-size: 60px;
+  }
 
-    .cvBtn, .portfolioBtn{
-        padding: .4em;
-    }
+  .cvBtn,
+  .portfolioBtn {
+    padding: 0.4em;
+  }
 
-    .mainImgDiv img{
-        height: 25em;
-        position: absolute;
-        bottom: 0;
-        right: 4em;
-    }
+  .mainImgDiv img {
+    height: 25em;
+    position: absolute;
+    bottom: 0;
+    right: 4em;
+  }
 
-    /* section 2 styling */
+  /* section 2 styling */
 
-    .section2, .section3{
-        padding: 1em 3em;
-    }
+  .section2,
+  .section3 {
+    padding: 1em 3em;
+  }
 
-        /* hireme */
+  /* hireme */
 
-        .hiremeText{
-            height: 15em;
-        }
-    
-        .hiremeTextDiv{
-            flex-direction: column;
-        }
-    
-        .hiremeTextDiv div img{
-            height: 25em;
-        }
+  .hiremeText {
+    height: 15em;
+  }
+
+  .hiremeTextDiv {
+    flex-direction: column;
+  }
+
+  .hiremeTextDiv div img {
+    height: 25em;
+  }
 }
 
 /* mobile view */
 
 @media screen and (max-width: 765px) {
-    .section1{
-        height: 91vh;
-        padding: 0 2em;
-    }
+  .section1 {
+    height: 91vh;
+    padding: 0 2em;
+  }
 
-    .flexDiv{
-        align-items: start;
-    }
+  .flexDiv {
+    align-items: start;
+  }
 
-    .welcomeDiv{
-        height: 60%;
-        align-items: flex-start;
-    }
+  .welcomeDiv {
+    height: 60%;
+    align-items: flex-start;
+  }
 
-    .mainImgDiv img{
-        height: 20em;
-        margin-bottom: 7em;
-    }
+  .mainImgDiv img {
+    height: 30em;
+    position: absolute;
+    left: 7%;
+    margin-bottom: em;
+  }
 
-    .btnsDiv{
-        background-color: var(--primaryColor);
-        height: 3em;
-        width: 90%;
-        z-index: 1;
-        position: absolute;
-        bottom: 4em;
-        justify-content: center;
-        align-items: center;
-        gap: 2em;
-    }
+  .btnsDiv {
+    /* background-color: var(--primaryColor); */
+    height: 3em;
+    width: 90%;
+    z-index: 1;
+    position: absolute;
+    bottom: 4em;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+  }
 
-    .btnsDiv button{
-        height: 2.5em;
-    }
+  .btnsDiv button {
+    height: 2.5em;
+  }
 
-    .downBtnDiv{
-        bottom: 1.5em;
-        left: 45%;
-        justify-content: center;
-    }
+  .downBtnDiv {
+    bottom: 1.5em;
+    left: 45%;
+    justify-content: center;
+  }
 
-    /* section2 file styling */
+  /* section2 file styling */
 
-    .section2{
-        padding: 1em 2em;
-    }
+  .section2 {
+    padding: 1em 2em;
+  }
 
-    /* section 3 coponent styling */
+  /* section 3 coponent styling */
 
-    .section3{
-        padding: 0 2em;
-    }
+  .section3 {
+    padding: 0 2em;
+  }
 
-    .serviceAllDiv{
-        gap: 1.5em;
-        overflow: hidden;
-    }
+  /* hireme */
 
-    .serviceInfoDiv{
-        width: 10em;
-        max-width: 10em;
-        height: 10em;
-        font-size: 14px;
-    }
+  .hiremeText {
+    height: 15em;
+  }
 
-    .serviceInfoDiv p{
-        font-size: 16px;
-        line-height: 2em;
-    }
+  .hiremeTextDiv {
+    flex-direction: column;
+  }
 
-    .serviceInfoDiv .toggleProject{
-        height: 1em;
-        padding: .3em;
-    }
+  .hiremeTextDiv div img {
+    height: 20em;
+  }
 
-    .serviceInfoDiv .toggleProject p{
-        width: .8em;
-        height: .8em;
-    }
+  /* section4 */
+  .sec4Div1 {
+    flex-direction: column-reverse;
+    gap: 1em;
+    padding: 2em 2em 0 2em;
+    height: auto;
+    margin-bottom: 2em;
+  }
 
-    .serviceInfoDiv .toggleProject button{
-        background-color: var(--secondaryColor);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-    }
+  .sec4Div1 img {
+    height: 20em;
+  }
 
-    .servicesDiv{
-        flex-grow: 3;
-        width: 150em;
-        overflow: hidde;
-    }
+  .sec4Div1 h3,
+  .sec4Div1 h2 {
+    font-size: 36px;
+  }
 
-    .service{
-        width: 8em;
-    }
+  .sec4Div1 h2 {
+    font-size: 80px;
+  }
 
-    .service h3{
-        font-size: 12px;
-    }
+  /* images in sec4Div2 would be in a carousel format */
+  .sec4Div2 {
+    display: none;
+  }
 
-    .service p{
-        font-size: 12px;
-        line-height: 2em;
-        text-align: center;
-    }
+  .loadWorkDiv{
+    justify-content: flex-start;
+    width: 100vw;
+    overflow: scroll;
+  }
 
-    /* hireme */
 
-    .hiremeText{
-        height: 15em;
-    }
-
-    .hiremeTextDiv{
-        flex-direction: column;
-    }
-
-    .hiremeTextDiv div img{
-        height: 20em;
-    }
 }
 
 /* ************************************* */
 /* styling for project page starts here */
 /* ----------------------------------- */
 
-
-section{
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
-    display: flex;
-    flex-direction: column;
-    padding: 0 8em;
-    height: 85vh;
+section {
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  display: flex;
+  flex-direction: column;
+  padding: 0 8em;
+  height: 85vh;
 }
 
-.searchDiv{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
+.searchDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
 }
 
-.setSearchBg{
-    background-color: var(--whiteBackgroundColor);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 32%;
-    padding: .3em .2em;
+.setSearchBg {
+  background-color: var(--whiteBackgroundColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 32%;
+  padding: 0.3em 0.2em;
 }
 
-.selectDiv{
-    width: 65%;
+.selectDiv {
+  width: 65%;
 }
 
-select{
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    font-size: 17px;
-    padding: .3em;
+select {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  padding: 0.3em;
 }
 
-.searchDiv button{
-    padding: .2em;
-    width: 6em;
-    color: var(--primaryColor);
+.searchDiv button {
+  padding: 0.2em;
+  width: 6em;
+  color: var(--primaryColor);
 }
 
 @media screen and (max-width: 900px) {
-    section{
-        padding: 0 2em;
-    }
+  section {
+    padding: 0 2em;
+  }
 
-    .setSearchBg{
-        width: 100%;
-    }
+  .setSearchBg {
+    width: 100%;
+  }
 
-    select{
-        background-color: #c4c4c4;
-    }
+  select {
+    background-color: #c4c4c4;
+  }
 }
 
 /* ************************************* */
 /* styling for skills page starts here */
 /* ----------------------------------- */
 
-.allSkillsDiv{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2em;
+.allSkillsDiv {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em;
 }
 
-.skillsTableAllDiv{
-    background-color: var(--whiteBackgroundColor);
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2em;
+.skillsTableAllDiv {
+  background-color: var(--whiteBackgroundColor);
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
 }
 
-.skillTableDiv{
-    width: 90%;
-    height: 15em;
-    background-color: var(--whiteBackgroundColor);
-    color: var(--primaryColor);
-    display: flex;
-    justify-content: space-between;
-    padding: 1em;
+.skillTableDiv {
+  width: 90%;
+  height: 15em;
+  background-color: var(--whiteBackgroundColor);
+  color: var(--primaryColor);
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
 }
 
-.skillTableDiv img{
-    width: 15em;
-    height: 11.6em;
+.skillTableDiv img {
+  width: 15em;
+  height: 11.6em;
 }
 
-.skillTable{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
+.skillTable {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
 }
 
-.skillTable p{
-    width: 320%;
-    border-bottom: 4px solid var(--primaryColor);
+.skillTable p {
+  width: 320%;
+  border-bottom: 4px solid var(--primaryColor);
 }
 
-.skillsListHeading{
-    background-color: var(--primaryColor);
-    color: var(--whiteBackgroundColor);
-    text-align: center;
-    font-weight: bold;
+.skillsListHeading {
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  text-align: center;
+  font-weight: bold;
 }
 
-.skillsList{
-    background-color: var(--whiteBackgroundColor);
-    color: var(--primaryColor);
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    /* height: 17em; */
+.skillsList {
+  background-color: var(--whiteBackgroundColor);
+  color: var(--primaryColor);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  /* height: 17em; */
 }
 
-.skillsList p{
-    border-bottom: 4px solid var(--primaryColor);
-    width: 15em;
-    display: flex;
-    justify-content: space-between;
-    padding: .4em;
-    cursor: pointer;
+.skillsList p {
+  border-bottom: 4px solid var(--primaryColor);
+  width: 15em;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.4em;
+  cursor: pointer;
 }
 
-.skillsList p:active{
-    color: red;
+.skillsList p:active {
+  color: red;
 }
 
-.activeSkill{
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background-color: var(--secondaryColor);
+.activeSkill {
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: var(--secondaryColor);
 }
 
-.skillsTableAllDiv div button{
-    padding: .3em;
-    background-color: var(--primaryColor);
-    border: none;
-    margin-bottom: 1em;
+.skillsTableAllDiv div button {
+  padding: 0.3em;
+  background-color: var(--primaryColor);
+  border: none;
+  margin-bottom: 1em;
 }
 
 /* styling for skills page mobile view */
 
 @media screen and (max-width: 900px) {
+  .skillsSection .searchDiv {
+    margin: 2em 0;
+  }
 
-    .skillsSection .searchDiv{
-        margin: 2em 0;
-    }
+  .allSkillsDiv {
+    flex-direction: column;
+  }
 
-    .allSkillsDiv{
-        flex-direction: column;
-    }
+  .skillsTableAllDiv {
+    width: 100%;
+    margin-bottom: 1em;
+    height: 30em;
+  }
 
-    .skillsTableAllDiv{
-        width: 100%;
-        margin-bottom: 1em;
-        height: 30em;
-    }
+  .skillTable {
+    width: 100%;
+  }
 
-    .skillTable{
-        width: 100%;
-    }
+  .skillTable p {
+    width: 100%;
+  }
 
-    .skillTable p{
-        width: 100%;
-    }
+  .skillTableDiv {
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
 
-    .skillTableDiv{
-        flex-direction: column;
-        align-items: center;
-        gap: 2em;
-    }
 
-    .skillsList{
-        display: none;
-    }
+  .skillsList {
+    display: none;
+  }
+}
+
+.skillTableDiv img {
+  display: none;
 }

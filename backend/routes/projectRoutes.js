@@ -4,9 +4,11 @@ import getProjects from '../controllers/projectControllers/getProjects.js';
 import createProjectType from '../controllers/projectControllers/createProjectType.js';
 import getProjectTpe from '../controllers/projectControllers/getProjectTypes.js';
 import CountProjects from '../controllers/projectControllers/countProject.js';
+import service from '../controllers/projectControllers/services.js';
 
 import uploadProjectImages from '../controllers/projectControllers/uploadProjectImgs.js';
 import deleteProjectImg from '../controllers/projectControllers/deleteProjectImg.js';
+import getServices from '../controllers/projectControllers/getServices.js';
 
 const projectRoutes = express.Router();
 
@@ -22,6 +24,9 @@ projectRoutes.get('/projectCount', CountProjects);
 
 projectRoutes.post('/uploadImage', uploadProjectImages);
 
-projectRoutes.delete('/deleteImage/:filename', deleteProjectImg)
+projectRoutes.delete('/deleteImage/:filename', deleteProjectImg);
+
+projectRoutes.post('/createService', service);
+projectRoutes.get('/getServices', getServices);
 
 export default projectRoutes;

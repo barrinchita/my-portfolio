@@ -9,162 +9,221 @@
 
 body {
 }
-
 .viewProject {
-  color: white;
-  background-color: var(--primaryColor);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  /* margin-top: 20px; */
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
 }
 
-/* .projectHeader {
-  background-color: rgb(0, 102, 255);
-} */
+.loading,
+.error {
+  text-align: center;
+  margin-top: 5rem;
+  font-size: 1.5rem;
+}
 
-.projectTitle{
-    width: 40em;
-    padding-bottom: .5em;
-    border-bottom: 2px solid green;
+.projectHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+  height: 5em;
 }
 
 .projectHeader h1 {
-  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 0.5rem;
   color: white;
-  text-transform: capitalize;
 }
 
-.projectHeader img {
-  width: 4em;
-  height: 4em;
-  border-radius: 50%;
-}
-
-.projectParticipants{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin-top: 1em;
-}
-
-.projectParticipants div{
-    background-color: var(--secondaryColor);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* margin: 0 10px; */
-    gap: .5em;
-}
-
-.projectStatus{
-    padding-top: 1em;
-    width: 68em;
-}
-
-.projectStatus p{
-    width: 40em;
-    text-align: left;
-    line-height: 1.5em;
-    font-size: 17px;
-}
-
-/* .projectDescription{
-    background-color: pink;
-} */
-
-.projectDescription h3{
-    padding-bottom: .5em;
-    font-size: 1.5em;
-}
-
-.projecttalk h4{
-    padding-top: 1em;
-    padding-bottom: .5em;
-    font-size: 1.5em;
-}
-
-.projecttalk img{
-    border-radius: 0%;
-    width: 40em;
-    height: 20em;
-}
-
-.projecttalk p{
-    width: 38em;
-    text-align: left;
-    padding-top: 1em;
-    line-height: 1.5em;
-    font-size: 17px;
-}
-
-.projectConclusion{
-    padding-top: 1em;
-}
-
-/* project details */
-
-.projectDetails{
-    background-color: white;
-    color: black;
-    padding: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    width: 13em;
-
-    position: absolute;
-    right: 8em;
-    top: 8.2em;
-}
-
-.projectDetails h3{
-    font-size: 1.3em;
-    padding-bottom: .5em;
-}
-
-.projectDetails img{
-    width: 3em;
-}
-
-.projectTechnologies{
-    display: flex;
-    flex-direction: column;
-    gap: .5em;
-    font-weight: 600;
-}
-
-/* mobile screen sizes */
-
-@media screen and (max-width: 600px){
-    .projectTitle{
-        width: 20em;
+@media screen and (max-width: 567px) {
+    .projectHeader h1{
+        font-size: 1.5rem;
     }
+}
 
-    .projectTitle h3{
-        font-size: 17px;
+.projectType {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+.date {
+  font-size: 0.95rem;
+  color: #888;
+}
+
+.mainImageSection {
+  text-align: center;
+  margin-bottom: 2rem;
+  height: auto;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.mainImage {
+  width: 100%;
+  height: 30em;
+  max-width: 700px;
+  border-radius: 10px;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.imageDescription {
+  margin-top: 1rem;
+  color: #e9e9e9;
+  font-style: italic;
+}
+
+.carouselSection {
+  margin-bottom: 2.5rem;
+  height: auto;
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.carouselSection h2 {
+  margin-bottom: 1rem;
+  font-size: 1.6rem;
+}
+
+.carousel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+@media screen and (max-width: 567px) {
+
+    .carouselSection h2{
         text-align: center;
     }
 
-    .viewProject p{
-        width: 19em;
-        text-align: justify;
+    .carousel{
+        justify-content: center;
     }
+}
 
-    .projectDetails{
-        width: 15em;
-        margin: 1em 0;
-        right: 5em;
-        position: static;
-    }
+.carouselItem {
+  /* flex: 1 1 200px; */
+  text-align: center;
+  width: auto;
+}
 
-    .projectStatus{
-        width: 20em;
-    }
+.carouselImage {
+  width: 100%;
+  max-width: 200px;
+  min-width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
 
-    .projecttalk img{
-        width: 20em;
-        height: 10em;
-    }
+.technologySection {
+  margin-bottom: 2rem;
+  height: auto;
+  padding-top: 1em;
+  padding-bottom: 1rem;
+}
+
+.techList {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.techItem h4 {
+  margin: 0;
+  color: #0070f3;
+}
+
+.techItem p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.linksSection {
+  /* background-color: #f9f9f9; */
+  height: auto;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.linksSection h2 {
+  margin-bottom: 1rem;
+}
+
+.linksSection a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+.linksSection a:hover {
+  text-decoration: underline;
+}
+
+/* preview image style */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.modalImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+.modalDescription {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.carouselImage {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.carouselImage:hover {
+  transform: scale(1.05);
 }

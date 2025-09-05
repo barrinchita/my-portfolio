@@ -3,7 +3,9 @@ import Aside from "./Aside";
 import LogStatus from "./LogStatus";
 import styles from "../css/admin.module.css";
 import cameraIcon from "../../assets/camera.png";
-import { deleteImage } from "./functions";
+import { deleteImage, projectCategories } from "./functions";
+
+import getEnv from "../JS/env";
 
 function Upload() {
   const [file, setFile] = useState(null);
@@ -12,6 +14,7 @@ function Upload() {
   const [uploadError, setUploadError] = useState(false);
   const [statusMessage, setStatusMessage] = useState({ message: "", bg: "" });
   const [updatedIndex, setUpdatedIndex] = useState(0);
+  const [categories, setCategories] = useState(null);
 
   const [project, setProject] = useState({
     projectTitle: "",
@@ -82,7 +85,7 @@ function Upload() {
       setImageLoading(true);
 
       const response = await fetch(
-        "http://localhost:8000/api/project/uploadImage",
+        `${getEnv().REACT_APP_API_URL}/project/uploadImage`,
         {
           method: "POST",
           body: formData,
@@ -192,7 +195,7 @@ function Upload() {
   const handleSubmit = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/api/project/create",
+        `${getEnv().REACT_APP_API_URL}/project/create`,
         {
           method: "POST",
           headers: {
@@ -239,6 +242,18 @@ function Upload() {
     }
   };
 
+  useEffect(() => {
+    const getProjectCategories = async () => {
+      const data = await projectCategories();
+      console.log(data)
+      if (data != null && data != undefined) {
+        setCategories(data.data);
+      }
+    };
+
+    getProjectCategories();
+  }, []);
+
   return (
     <>
       {statusMessage.message && (
@@ -256,13 +271,23 @@ function Upload() {
             value={project.projectTitle}
             onChange={handleProjectInputChange}
           />
-          <input
+          {/* <input
             type="text"
             name="projectType"
             placeholder="Project Type"
             value={project.projectType}
             onChange={handleProjectInputChange}
-          />
+          /> */}
+
+          <select name="projectType" id="" value={project.projectType} onChange={handleProjectInputChange}>
+            <option>Choose project catgory --</option>
+            {categories && categories.map((category, index) => (
+              <option key={index}>
+                {category.skillname[0].skill}
+              </option>
+            ))}
+          </select>
+
           <input
             type="text"
             name="websiteLink"
@@ -313,7 +338,7 @@ function Upload() {
         </section>
 
         <section className={styles.uploadImageMainDiv}>
-          <h2 style={{color: "black"}}>Upload Main Image</h2>
+          <h2 style={{ color: "black" }}>Upload Main Image</h2>
           {!previewUrl[0]?.url && (
             <label className={styles.uploadImageDiv}>
               <img src={cameraIcon} alt="Upload" className={styles.imgIcon} />
@@ -353,7 +378,7 @@ function Upload() {
         </section>
 
         <section className={styles.carouselImagesDiv}>
-          <h2 style={{color: "black"}}>Carousel Images</h2>
+          <h2 style={{ color: "black" }}>Carousel Images</h2>
           {previewUrl.map((img, index) =>
             index === 0 ? null : (
               <div key={index} className={styles.carouselItem}>
@@ -385,9 +410,9 @@ function Upload() {
 
 
         </section>
-          <button className={styles.submitButton} onClick={handleSubmit}>
-            Submit Project
-          </button>
+        <button className={styles.submitButton} onClick={handleSubmit}>
+          Submit Project
+        </button>
       </main>
     </>
   );

@@ -1,6 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom"
 import portfolio from "../../assets/portfolio.png";
+import me from "../../assets/me.png"
 import styles from "../css/main.module.css";
 import { FaHome } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
@@ -25,7 +26,7 @@ function Section1() {
         </div>
 
         <div className={styles.mainImgDiv}>
-          <img src={portfolio} alt="" />
+          <img src={me} alt="" />
         </div>
       </div>
 

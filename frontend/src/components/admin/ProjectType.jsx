@@ -4,6 +4,8 @@ import styles from '../css/admin.module.css'
 
 import Aside from "./Aside";
 
+import getEnv from "../JS/env";
+
 function ProjectType() {
     const [projectType, setProjectType] = useState("");
     const [data, setData] = useState(null);
@@ -41,7 +43,7 @@ function ProjectType() {
         }
 
         if(isFormValid()){
-            const response = await fetch("http://localhost:8000/api/project/addProjectType", 
+            const response = await fetch(`${getEnv().REACT_APP_API_URL}/project/addProjectType`, 
             {
                 method: 'POST',
                 headers: {
@@ -82,9 +84,6 @@ function ProjectType() {
                     });
 
                 }
-
-                console.log(response.status)
-                console.log(data);
             }
         }else{
           setError((prevError) => ({
@@ -93,7 +92,6 @@ function ProjectType() {
             message: "All fields are required",
             bg: 'red'
           }));
-          console.log(isFormValid())
         }
         
     };
@@ -127,7 +125,7 @@ function ProjectType() {
     <>
         { error.status && <LogStatus bg={error.bg} message={error.message} />}
       <Aside />
-      <div className={styles.skillsCon}>
+      <div className={`${styles.skillsCon} ${styles.uploadMain}`}>
         <div>
           <label htmlFor="">Skill name</label>
           {

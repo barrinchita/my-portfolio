@@ -1,7 +1,8 @@
+import getEnv from "./env.js";
 
 const getNewToken = async (refreshToken) => {
     try {
-        const response = await fetch("http://localhost:8000/api/auth/token", {
+        const response = await fetch( `${getEnv().REACT_APP_API_URL}/auth/token`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

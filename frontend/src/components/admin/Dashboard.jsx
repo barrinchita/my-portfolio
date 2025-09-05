@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import getEnv from "../JS/env";
 
 const Dashboard = ({ projects, skills }) => {
   // Styles (in-file styling as requested)
@@ -46,7 +47,7 @@ const Dashboard = ({ projects, skills }) => {
     const getProject = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8000/api/project/projectCount`,
+          `${getEnv().REACT_APP_API_URL}/project/projectCount`,
           {
             method: "GET",
             headers: {
@@ -66,7 +67,6 @@ const Dashboard = ({ projects, skills }) => {
             projects: data.project
           }));
 
-          console.log(data.project)
         }
 
         if(data.skills){
@@ -78,6 +78,7 @@ const Dashboard = ({ projects, skills }) => {
 
         if(data.projectTitle){
           setProjectTitle(data.projectTitle);
+          console.log(data.projectTitle)
         }
 
         if(data.skillsTitle){
@@ -94,7 +95,8 @@ const Dashboard = ({ projects, skills }) => {
       }
     };
 
-    getProject()
+    getProject();
+    console.log(projectTitle)
   }, []);
 
   if (loading) {
@@ -130,7 +132,7 @@ const Dashboard = ({ projects, skills }) => {
             <ul style={listStyle}>
               {projectTitle.map((project, index) => (
                 <li key={index} style={listItemStyle}>
-                  {project.projectTitle[0]?.title || 'no title'}
+                  {project.projectTitle || 'no title'}
                 </li>
               ))}
             </ul>

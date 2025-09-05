@@ -1,69 +1,69 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
 
-header{
+header {
     background-color: #1A202C;
     padding: 2em 8em;
     height: 3em;
     font-weight: bolder;
 }
 
-nav{
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: black; */
+    background-color: black;
 }
 
-.logoDiv{
+.logoDiv {
     display: flex;
     align-items: center;
 }
 
-.logo{
+.logo {
     color: #4299E1;
     font-size: 30px;
     margin-left: .2em;
 }
 
-.logoDiv p{
+.logoDiv p {
     height: 20px;
     width: 20px;
     border-radius: 50%;
     background-color: white;
 }
 
-#dotUntop{
+#dotUntop {
     background-color: #1A202C;
     position: relative;
     left: .9em;
 }
 
-.links{
+.links {
     display: flex;
     gap: 3em;
 }
 
-.links a{
+.links a {
     color: white;
     text-decoration: none;
     font-size: 20px;
 }
 
-.links a:hover{
+.links a:hover {
     color: #1A202C;
 }
 
-#loginBtn{
+#loginBtn {
     background-color: transparent;
     border: none;
     color: white;
 }
 
-#hireMe{
+#hireMe {
     background-color: transparent;
     padding: .7em;
     width: 7em;
@@ -77,18 +77,18 @@ nav{
     /* box-shadow: 0px 0px 4px 0px #4299E1; */
 }
 
-#hireMe:hover{
+#hireMe:hover {
     border: 2px solid #1A202C;
     background-color: #4299E1;
 }
 
-.toggleBar{
+.toggleBar {
     display: none;
 }
 
 /* footer styling */
 
-footer{
+footer {
     background-color: #4299E1;
     margin-top: 1em;
     padding: 2.5em 8em;
@@ -96,33 +96,44 @@ footer{
     justify-content: space-between;
 }
 
-footer p{
+footer p {
     font-size: 18px;
+}
+
+.loginbtn button {
+    margin-top: -1em;
+    top: 3.7em;
+    position: absolute;
+    right: 16em;
 }
 
 /* tablet styling desing */
 
 @media screen and (max-width: 900px) {
-    header{
+    header {
         /* background-color: orange; */
         padding: 1em 5em;
         font-size: 15px;
     }
 
-    .links a{
+    .loginbtn button {
+        position: static;
+    }
+
+    .links a {
         font-size: 13px;
     }
 
-    #hireMe{
+    #hireMe {
         padding: .3em;
         width: 6em;
     }
 
-    .toggleBar{
+    .toggleBar {
         display: none;
     }
 
-    footer{
+    footer {
         padding: 1em 5em;
     }
 }
@@ -130,50 +141,57 @@ footer p{
 /* mobile view */
 
 @media screen and (max-width: 765px) {
-    
-    header, footer{
+
+    header,
+    footer {
         padding: 1em 2em;
         position: relative;
     }
 
-    nav{
+    nav {
         width: 90vw;
     }
 
-    .logoDiv{
+    .logoDiv {
         width: 40%;
     }
-    
-    .links{
+
+    .links {
         background-color: #4299E1;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 2em;
-        height: 14em;
+        height: auto;
         z-index: 1;
         position: absolute;
         top: 5em;
         width: 10em;
         right: 0;
+        padding: 1em 0;
     }
 
-    .slideIn{
+    .slideIn {
         opacity: 1;
         transition: 1s;
     }
 
-    .notActive{
+    .notActive {
         display: none;
         opacity: 0;
     }
 
 
-    .links a{
+    .links a {
         font-size: 16px;
     }
 
-    .toggleDiv{
+    .loginbtn button {
+        background-color: #1A202C;
+        position: static;
+    }
+
+    .toggleDiv {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -181,21 +199,37 @@ footer p{
         width: 60%;
     }
 
-    #hireMe{
+    #hireMe {
         margin-right: -2em;
         width: 10em;
         padding: .3em;
     }
 
-    .toggleBar{
+    .toggleDiv .btn01 {
+        /* margin-left: 4rem; */
+        width: 6em;
+    }
+
+    .toggleBar {
         margin-left: 1em;
         border: none;
         color: white;
         background-color: transparent;
         font-size: 20px;
-        display: block;
+        display: inline;
     }
 
+    .toggleDiv button:first-child {
+        width: 12em;
+    }
+
+
+    .swiper-slide img {
+        display: flex;
+        width: 200%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 /* swipper css */
@@ -203,34 +237,36 @@ footer p{
 .swiper {
     width: 100%;
     height: 100%;
-  }
-  
-  .swiper-slide {
+}
+
+.swiper-slide {
     text-align: center;
     font-size: 18px;
-  
+
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 100%;
+}
+
+.swiper-slide img {
+    display: flex;
+    width: 20em;
     height: 100%;
-    object-fit: cover;
-  }
-  
-    .swiper-pagination-bullet {
-      width: 12px;
-      height: 12px;
-      background-color: black; /* Change to your preferred color */
-      opacity: 1;
-      margin-top: 10em;
-    }
-    
-    .swiper-pagination-bullet-active {
-      background-color: #007bff; /* Color when active */
-      transform: scale(1.3); /* Make active bullet bigger */
-    }
+}
+
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: black;
+    /* Change to your preferred color */
+    opacity: 1;
+    margin-top: 10em;
+}
+
+.swiper-pagination-bullet-active {
+    background-color: #007bff;
+    /* Color when active */
+    transform: scale(1.3);
+    /* Make active bullet bigger */
+}

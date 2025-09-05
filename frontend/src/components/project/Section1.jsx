@@ -8,7 +8,7 @@ function Section1() {
   return (
     <>
       <section>
-        <SearchProject/>
+        {/* <SearchProject/> */}
 
         <Projects title="Web Development"/>
 

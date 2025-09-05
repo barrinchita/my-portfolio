@@ -67,6 +67,15 @@ const projectImages = mongoose.Schema({
   ],
 });
 
+const service = new mongoose.Schema({
+  serviceName: { type: String, required: true },
+  serviceDescription: { type: String, required: true },
+  serviceImage: { type: String, required: true },
+  datePosted: { type: Date, default: Date.now },
+});
+
+export const Service = mongoose.model("Service", service);
+
 export const ImagesModel = mongoose.model("projectImages", projectImages);
 
 export const ProjectTypes = mongoose.model("projectType", projectType);

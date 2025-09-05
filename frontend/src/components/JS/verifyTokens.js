@@ -1,7 +1,8 @@
+import getEnv from "./env";
 
 const verifyToken = async (token) => {
     try {
-        const response = await fetch("http://localhost:8000/api/auth/verifyToken", {
+        const response = await fetch( `${getEnv().REACT_APP_API_URL}/auth/verifyToken` , {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -20,6 +21,6 @@ const verifyToken = async (token) => {
         message: "An error occured. Try again later.",
         };
     }
-    }
+}
 
 export default verifyToken;

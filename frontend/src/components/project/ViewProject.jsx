@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom"; // Import useLocation
-
+import { useLocation } from "react-router-dom";
 import styles from "../css/viewprojects.module.css";
 
+import getEnv from "../JS/env";
+
 function ViewProject() {
-  const [project, setProject] = useState({});
+  const [project, setProject] = useState(null);
   const [loading, setLoading] = useState(true);
-  const location = useLocation(); // Use useLocation hook
+  const [modalImage, setModalImage] = useState(null);
+  const [modalVisible, setModalVisible] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const id = new URLSearchParams(location.pathname.split(":").pop());
@@ -16,119 +19,133 @@ function ViewProject() {
 
     const getProject = async () => {
       try {
-        const response = await fetch(
-          `http://localhost:8000/api/project/${realId}`,
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        if (!response.ok) {
-          console.log("response not ok")
-          throw new Error("Network response was not ok");
-        }
+        const response = await fetch(`${getEnv().REACT_APP_API_URL}/project/${realId}`);
         const data = await response.json();
-        console.log(data);
-        setProject(data.data);
-        setLoading(false);
+        if (response.ok) {
+          setProject(data.data);
+        } else {
+          throw new Error("Project not found");
+        }
       } catch (error) {
-        console.log(error);
-        setLoading(false); // Handle errors
+        console.error(error);
+      } finally {
+        setLoading(false);
       }
     };
 
-    if (id) {
-      getProject();
-    }
-  }, [loading]);
+    getProject();
+  }, []);
 
-  // Check for participants
-  // const participants = 
+  const openModal = (img) => {
+    setModalImage(img);
+    setModalVisible(true);
+  };
 
-  if (loading) {
-    return <h1>Loading...</h1>;
-  }
+  const closeModal = () => {
+    setModalVisible(false);
+    setModalImage(null);
+  };
+
+  if (loading) return <h1 className={styles.loading}>Loading project...</h1>;
+  if (!project) return <h2 className={styles.error}>Project not found</h2>;
 
   return (
     <div className={styles.viewProject}>
-      <div className={styles.projectHeader}>
-        <div className={styles.projectTitle}>
-          <h1>{project.projectTitle[0].title || "Title of the project goes here"}</h1>
-          <div className={styles.projectParticipants}>
+      <header className={styles.projectHeader}>
+        <h1>{project.projectTitle || "Untitled Project"}</h1>
+        <p className={styles.projectType}>{project.projectType}</p>
+        <p className={styles.date}>
+          Posted on:{" "}
+          {new Date(project.datePosted).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          })}
+        </p>
+      </header>
 
-            {
-              project.participants?.map((participantImage, index) => (
-                <div key={index}>
-                  <img src={`../../../uploads/${participantImage.participantImage}`} alt="" />
-                  {/* <h3>{participant.pa || 'Bar'}</h3>  */}
-                </div>
-              )) || []
-            }
+      <section className={styles.mainImageSection}>
+        {project.image?.[0]?.imagePath && (
+          <img
+            src={project.image[0].imagePath}
+            alt="Main Project"
+            className={styles.mainImage}
+          />
+        )}
+        {project.image?.[0]?.imageDescription && (
+          <p className={styles.imageDescription}>
+            {project.image[0].imageDescription}
+          </p>
+        )}
+      </section>
 
-          </div>
-        </div>
-
-        <div className={styles.projectStatus}>
-          <div className={styles.projectDescription}>
-            <h3>Project Description</h3>
-            <p>{project.projectOverview?.[0]?.overview || 'No overview available'}</p>
-          </div>
-
-          {
-            project.participants?.map((participantImage, index) => (
-              <div className={styles.projecttalk} key={index}>
-                <h4>{participantImage.imageTitle}</h4>
-                <img src={`../../../uploads/${participantImage.participantImage}`} alt="" />
-                <p>{participantImage.imageDescription}</p>
-              </div>
-            ))
-          }
-
-          <div className={styles.projectConclusion}>
-            <p>{project.conclusion?.[0]?.conclusion || 'No conclusion available'}</p>
-          </div>
-        </div>
-      </div>
-
-      <div className={styles.projectDetails}>
-        <div>
-          <h3>Project type</h3>
-          <p>{project.projectType?.[0]?.type || 'No type available'}</p>
-        </div>
-
-        <div>
-          <h3>Date posted</h3>
-          <p>12th October, 2021</p>
-        </div>
-
-        <div>
-          <h3>
-            Hosted? <span>Yes</span>
-          </h3>
-          <p>{project.websitelink?.[0]?.link || 'No link'}</p>
-        </div>
-
-        <div>
-          <h3>Project Status</h3>
-          <p>{project.status || 'Status not available'}</p>
-        </div>
-
-        <div>
-          <h3>Github repository</h3>
-          <p>{project.githubRepo?.[0]?.repo || 'No repository'}</p>
-        </div>
-
-        <div className={styles.projectTechnologies}>
-          <h3>Technologies used</h3>
-          {project.stacks?.map((stack, index) => (
-            <div key={index}>
-              <p>{stack.stack}</p>
+      <section className={styles.carouselSection}>
+        <h2>Project Gallery</h2>
+        <div className={styles.carousel}>
+          {project.image?.slice(1).map((img, index) => (
+            <div key={index} className={styles.carouselItem}>
+              <img
+                src={img.imagePath}
+                alt={`carousel-${index}`}
+                className={styles.carouselImage}
+                onClick={() => openModal(img)}
+              />
+              {img.imageDescription && <p>{img.imageDescription}</p>}
             </div>
           ))}
         </div>
-      </div>
+      </section>
+
+      <section className={styles.technologySection}>
+        <h2>Technologies Used</h2>
+        <ul className={styles.techList}>
+          {project.stack?.map((tech, index) => (
+            <li key={index} className={styles.techItem}>
+              <h4>{tech.name}</h4>
+              <p>{tech.descripition}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section className={styles.linksSection}>
+        <h2>Links</h2>
+        <p>
+          <strong>Website:</strong>{" "}
+          {project.websiteLink ? (
+            <a href={project.websiteLink} target="_blank" rel="noopener noreferrer">
+              {project.websiteLink}
+            </a>
+          ) : (
+            "Not available"
+          )}
+        </p>
+
+        <p>
+          <strong>GitHub:</strong>{" "}
+          {project.githubRepo ? (
+            <a href={project.githubRepo} target="_blank" rel="noopener noreferrer">
+              {project.githubRepo}
+            </a>
+          ) : (
+            "Not available"
+          )}
+        </p>
+      </section>
+
+      {modalVisible && modalImage && (
+        <div className={styles.modalOverlay} onClick={closeModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeModal}>
+              ✕
+            </button>
+            <img src={modalImage.imagePath} alt="Zoom" className={styles.modalImage} />
+            <div className={styles.modalDescription}>
+              {modalImage.imageDescription || "No description available"}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

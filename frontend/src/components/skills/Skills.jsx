@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import projectImg from "../../assets/web1.jpeg";
 import { Link } from "react-router-dom";
+import getEnv from "../JS/env";
 
 import styles from "../css/main.module.css";
 
@@ -15,7 +16,7 @@ function Skills() {
 
       const getProjectTypes = async () => {
         const response = await fetch(
-          "http://localhost:8000/api/project/getProjectTypes"
+          `${getEnv().REACT_APP_API_URL}/project/getProjectTypes`
         );
         if (response.ok) {
           let types = await response.json();
@@ -81,7 +82,7 @@ function Skills() {
         Skill name: <span>{data[0]?.skillname[0]?.skill}</span>
       </p>
       <p>
-        Proficiency: <input type="range" value={data[0]?.proficiency[0]?.proficiency} name="" id="" />
+        Proficiency: <input type="range" style={{width: "60%"}} value={data[0]?.proficiency[0]?.proficiency} name="" id="" />
       </p>
       <p>N° of projects: {data[0]?.expirience[0]?.expirience} </p>
       <p>

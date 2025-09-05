@@ -14,17 +14,16 @@ function Getprojects({ data }) {
         <div key={field._id} className={styles.project}>
           {/* Image with fallback */}
           <img
-            src={`../../../uploads/${field?.participants?.[0]?.participantImage || 'default-image.jpg'}`}
-            alt={field?.participants?.[0]?.participantName || 'Participant'}
+            src={field?.image[0]?.imagePath || 'default-image.jpg'}
+            alt={ 'image'}
           />
           <div className={styles.projectBody}>
             {/* Title with fallback */}
             <h1 className={styles.projectTitle}>
-              {field?.projectTitle?.[0]?.title || 'No Title Available'}
+              {field?.projectTitle || 'No Title Available'}
             </h1>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              Eaque saepe{" "}
+            <p style={{ height: '40px', overflow: 'hidden' }}>
+              {field?.image[0]?.imageDescription || 'No description available.'}
             </p>
             <div>
               {/* Link to the project page */}

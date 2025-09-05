@@ -4,6 +4,8 @@ import styles from "../css/main.module.css";
 import "../css/styles.css";
 import ShowHireForm from './ShowHireForm';
 
+import getEnv from "../JS/env.js";
+
 // swiper imports
 
 // Import Swiper React components
@@ -42,9 +44,9 @@ function Section2() {
     async function fetchData() {
       try {
         let limit = Math.floor(window.innerWidth / 16 / 22);
-        console.log(limit);
+
         const response = await fetch(
-          `http://localhost:8000/api/project?limit${limit}`
+          `${getEnv().REACT_APP_API_URL}/project?limit${limit}`,
         );
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
@@ -53,6 +55,7 @@ function Section2() {
         console.log(result);
         setData(result.message);
       } catch (err) {
+        console.log(err)
         setError(err.message);
       } finally {
         setLoading(false);
@@ -84,21 +87,25 @@ function Section2() {
         <div className={styles.projectBar}>
           <h2>Most recent project</h2>
           <Link to="/project">
-          <button className={styles.middleBtn}>
-          View All <FaHockeyPuck />
-          </button>
-        </Link>
+            <button className={styles.middleBtn}>
+              View All <FaHockeyPuck />
+            </button>
+          </Link>
         </div>
 
-        <div className={styles.allProjects}>
-          <div className={styles.subAllProjects} id="subAllProjects">
+        <div className={styles.allProjects}
+            style={data && data.length > 0 ? "" : { height: "3em", color: "black", justifyContent: "center"}}>
+          <div
+            className={styles.subAllProjects}
+            id="subAllProjects"
+          >
             <Getprojects data={data} />
           </div>
         </div>
 
         <div className={styles.toggleProject}>
           <button>
-            
+
             <FaChevronLeft />
           </button>
           <div>
@@ -106,7 +113,7 @@ function Section2() {
             <p className={styles.bigToggle}></p>
             <p></p>
           </div>
-          <button>  
+          <button>
             <FaChevronRight />
           </button>
         </div>
@@ -118,8 +125,8 @@ function Section2() {
             <h2>Proficient in</h2>
           </div>
         </div>
-      
-      {/* swiper */}
+
+        {/* swiper */}
         <>
           <Swiper
             slidesPerView={3}

@@ -9,19 +9,7 @@ import projects from "../JS/projects.js";
 
 import Getprojects from "./Getprojects.jsx";
 
-// const getData = async()=>{
-//   try{
-//       const response = await fetch("http://localhost:8000/api/project/");
-
-//     if(response.ok){
-//       let data = await response.json();
-//       console.log(data.message);
-//       return data.message;
-//     }
-//   }catch(error){
-//     console.log("Error fetching data", error);
-//   }
-// }
+import getEnv from "../JS/env.js";
 
 function Projects(props) {
   const [data, setData] = useState(null);
@@ -33,7 +21,7 @@ function Projects(props) {
       try {
       let limit = Math.floor((window.innerWidth/16)/22);
       const projectTitle = props.title; // Replace with the title you want to match
-      const response = await fetch(`http://localhost:8000/api/project?limit=${limit}&title=${encodeURIComponent(projectTitle)}`);
+      const response = await fetch(`${getEnv().REACT_APP_API_URL}/project?limit=${limit}&title=${encodeURIComponent(projectTitle)}`);
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }

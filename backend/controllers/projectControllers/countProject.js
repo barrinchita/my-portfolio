@@ -6,7 +6,7 @@ const CountProjects = async (req, res) => {
         const countProject = await Project.countDocuments();
         const countSkills = await ProjectTypes.countDocuments();
 
-        const projects = await Project.find({}, "projectTitle.title -_id").limit(10);
+        const projects = await Project.find({}, "projectTitle -_id").limit(10);
         const skills = await ProjectTypes.find({}, "skillname.skill -_id").limit(10);
 
         console.log(JSON.stringify(projects))

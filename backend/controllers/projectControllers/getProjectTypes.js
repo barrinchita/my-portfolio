@@ -1,16 +1,24 @@
 import { ProjectTypes } from "../../schemas/projectSchema.js";
 
 const getProjectTpe = async (req, res) => {
-  const types = await ProjectTypes.find({}, );
+  try {
+    const types = await ProjectTypes.find({});
 
-  if (types) {
-    console.log((types))
-    res.status(200).json({ message: "Project types gotten", data: types });
+    if (types) {
+      console.log(types);
+      res
+        .status(200)
+        .json({ status: true, message: "Project types gotten", data: types });
 
-    return;
+      return;
+    }
+
+    res.status(300).json({ status: true, message: "No project types", data: "" });
+  } catch (err) {
+    console.log(err.message);
+    res.status(500).json({ status: false, message: "An internal server error"});
   }
 
-  res.status(400).json({ message: "No project types", data: "" });
 };
 
 export default getProjectTpe;

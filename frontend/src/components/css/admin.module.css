@@ -1,4 +1,3 @@
-
 :root {
   --primaryColor: #1a202c;
   --secondaryColor: #4299e1;
@@ -51,8 +50,8 @@
   display: none;
 }
 
-.uploadImageMainDiv{
-    display: flex;
+.uploadImageMainDiv {
+  display: flex;
 }
 
 .uploadImageDiv {
@@ -75,27 +74,27 @@
   background-color: #45a049;
 }
 
-.uploadButtons{
-    display: flex;
-    flex-direction: column;
-    padding-left: 2em;
-    gap: 1em;
+.uploadButtons {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2em;
+  gap: 1em;
 }
 
-.uploadButtons button{
-    color: black;
+.uploadButtons button {
+  color: black;
 }
 
-.imgIcon{
+.imgIcon {
   width: 5em;
   border-radius: 50%;
 }
 
-.descriptionDiv{
+.descriptionDiv {
   margin-top: 1em;
 }
 
-.descriptionDiv textarea{
+.descriptionDiv textarea {
   margin-top: 1em;
   border: 1px solid gray;
   padding: 1em;
@@ -103,8 +102,8 @@
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.carouselLable{
-   background-color: #4caf50;
+.carouselLable {
+  background-color: #4caf50;
   color: white;
   padding: 10px 15px;
   cursor: pointer;
@@ -119,7 +118,7 @@
   align-items: center;
 }
 
-.carouselImagesDiv{
+.carouselImagesDiv {
   background-color: gray;
   display: flex;
   /* justify-content: space-between; */
@@ -130,11 +129,11 @@
   box-shadow: 1px 1px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
-.carouselImagesDiv img{
+.carouselImagesDiv img {
   height: 13em;
 }
 
-.carouselImagesDiv div{
+.carouselImagesDiv div {
   display: flex;
   flex-direction: column;
   background-color: orange;
@@ -150,6 +149,10 @@
   gap: 2rem;
   background: #f5f6fa;
   font-family: "Segoe UI", sans-serif;
+}
+
+.uploadMain h2{
+  color: black;
 }
 
 .formSection,
@@ -229,6 +232,7 @@ button:hover {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -245,6 +249,7 @@ button:hover {
   align-self: flex-start;
   width: 10em;
 }
+
 .submitButton:hover {
   background-color: #218838;
 }
