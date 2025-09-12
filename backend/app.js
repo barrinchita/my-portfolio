@@ -57,6 +57,9 @@ app.use(cors(corsOptions))
 
 // creating a connection to mongoDb
 // the env variable mongo_uri is created from docker when starting the backend container
+
+console.log("db connection string: ", process.env.MONGO_URI);
+
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
