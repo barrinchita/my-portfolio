@@ -6,6 +6,9 @@ dotenv.config();
 const ACCESS_TOKEN_SECRET_KEY = process.env.ACCESS_TOKEN_SECRET_KEY;
 const REFRESH_TOKEN_SECRET_KEY = process.env.REFRESH_TOKEN_SECRET_KEY;
 
+ACCESS_TOKEN_SECRET_KEY || console.error("No access token key found");
+REFRESH_TOKEN_SECRET_KEY || console.error("No refresh token key found");
+
 import bcrypt from "bcrypt";
 import { RefreshTokens, User } from "../../schemas/userSchema.js";
 
