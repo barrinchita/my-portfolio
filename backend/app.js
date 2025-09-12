@@ -56,8 +56,9 @@ app.use(cors(corsOptions))
 
 
 // creating a connection to mongoDb
+// the env variable mongo_uri is created from docker when starting the backend container
 mongoose
-  .connect("mongodb://127.0.0.1:27017/portfolio")
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("connection created");
   })
