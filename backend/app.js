@@ -36,7 +36,7 @@ app.use(express.json());
 // app.options('*', cors());
 
 const corsOptions = {
-  origin: 'http://localhost:5173',
+  origin: 'http://157.250.198.71:80',
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
   allowHeaders: ['Content-Type', 'Authorization'],
   credentials: true
