@@ -14,8 +14,9 @@ const sftpConfig = {
   password: process.env.VPS_PASS,
 };
 
-const REMOTE_IMAGE_DIR = "/home/barrinchita/repos/portfolioImages";
-const PUBLIC_URL_BASE = "http://67.217.62.113/portfolioImages";
+// const REMOTE_IMAGE_DIR = "/home/guru/repos/portfolioImages";
+const REMOTE_IMAGE_DIR = process.env.REMOTE_IMAGE_DIR;
+const PUBLIC_URL_BASE = process.env.PUBLIC_URL_BASE;
 
 const uploadProjectImgs = [
   upload.single("image"),
