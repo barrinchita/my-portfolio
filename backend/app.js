@@ -36,24 +36,13 @@ app.use(express.json());
 // app.options('*', cors());
 
 const corsOptions = {
-  origin: 'http://157.250.198.71:80',
+  origin: 'http://157.250.198.71',
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
-  allowHeaders: ['Content-Type', 'Authorization'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 }
 
-app.use(cors(corsOptions))
-
-// app.use(cors({
-//   origin: (origin, callback) => {
-//     callback(null, true); // Dynamically allow all origins
-//   },
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   // credentials: true, 
-// }));
-
-// creating an authentication middleware
-
+app.use(cors(corsOptions));
 
 // creating a connection to mongoDb
 // the env variable mongo_uri is created from docker when starting the backend container
