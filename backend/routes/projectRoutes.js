@@ -10,6 +10,9 @@ import uploadProjectImages from '../controllers/projectControllers/uploadProject
 import deleteProjectImg from '../controllers/projectControllers/deleteProjectImg.js';
 import getServices from '../controllers/projectControllers/getServices.js';
 
+import postgraphics from '../controllers/projectControllers/postgraphics.js';
+import getgraphics from '../controllers/projectControllers/getpgraphics.js';
+
 const projectRoutes = express.Router();
 
 projectRoutes.get('/', getProjects);
@@ -28,5 +31,8 @@ projectRoutes.delete('/deleteImage/:filename', deleteProjectImg);
 
 projectRoutes.post('/createService', service);
 projectRoutes.get('/getServices', getServices);
+
+projectRoutes.post("/postgraphics", postgraphics);
+projectRoutes.get("/getgraphics", getgraphics);
 
 export default projectRoutes;

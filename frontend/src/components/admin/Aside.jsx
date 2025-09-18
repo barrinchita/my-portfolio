@@ -9,6 +9,7 @@ function Aside() {
     <div className={styles.asideCon}>
         <Link className={styles.link} to={'/admin/'}>Dashboard</Link>
         <Link className={styles.link}  to={'/admin/addproject'}>Add project</Link>
+        <Link className={styles.link}  to={'/admin/graphics'}>Add graphic</Link>
         <Link className={styles.link}  to={'/admin/projectType'}>Add skills</Link>
         <Link className={styles.link}  to={'/admin/services'}>Services</Link>
         <Link className={styles.link}  to={'/admin/logout'}>Logout</Link>

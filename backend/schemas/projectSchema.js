@@ -74,6 +74,20 @@ const service = new mongoose.Schema({
   datePosted: { type: Date, default: Date.now },
 });
 
+// graphics schema
+
+const graphics = new mongoose.Schema({
+  group: [
+    {
+      id: {type: Number, required: true},
+      img: {type: String, required: true},
+      description: {type: String}
+    }
+  ]
+})
+
+export const Graphics = mongoose.model("Graphics", graphics);
+
 export const Service = mongoose.model("Service", service);
 
 export const ImagesModel = mongoose.model("projectImages", projectImages);

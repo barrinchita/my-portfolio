@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Aside from "./Aside";
 import LogStatus from "./LogStatus";
 import styles from "../css/admin.module.css";
-import cameraIcon from "../../assets/camera.png";
 import { deleteImage, projectCategories } from "./functions";
 
 import getEnv from "../JS/env";

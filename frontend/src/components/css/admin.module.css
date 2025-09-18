@@ -253,3 +253,28 @@ button:hover {
 .submitButton:hover {
   background-color: #218838;
 }
+
+.loadDiv {
+  width: 5em;
+  height: 5em;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primaryColor);
+  color: var(--whiteBackgroundColor);
+  transition: var(--fastTransition);
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  animation: spin 2s linear infinite;
+  margin: 2em auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  } to{
+    transform: rotate(360deg);
+  }
+  
+}

@@ -35,8 +35,11 @@ app.use(express.json());
 
 // app.options('*', cors());
 
+let prodOrigin = "http://157.250.198.71"
+let devOrigin = "http://localhost:5173"
+
 const corsOptions = {
-  origin: 'http://157.250.198.71',
+  origin: prodOrigin,
   methods: ['GET', 'POST', 'DELETE', 'PUT'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
@@ -54,7 +57,6 @@ mongoose
   })
   .catch((e) => {
     console.log(`Error connecting to db, Error: ${e}`);
-    res.status(500).json({failure: "Data base error"})
   });
 
   const getpass = async ()=>{
