@@ -3,7 +3,7 @@ import Aside from "./Aside";
 import LogStatus from "./LogStatus";
 import styles from "../css/admin.module.css";
 import { deleteImage, projectCategories } from "./functions";
-
+import cameraIcon from "../../assets/cameraIcon.png";
 import getEnv from "../JS/env";
 
 function Upload() {
