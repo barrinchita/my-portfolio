@@ -98,9 +98,9 @@ function App() {
             <Route
               path="/admin/addproject"
               element={
-                <ProtectedRoutes>
+                // <ProtectedRoutes>
                   <Upload />
-                </ProtectedRoutes>
+                // </ProtectedRoutes>
               }
             />
 
