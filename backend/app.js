@@ -35,7 +35,7 @@ app.use(express.json());
 
 // app.options('*', cors());
 
-let prodOrigin = "http://157.250.198.71"
+let prodOrigin = "http://69.164.244.56"
 let devOrigin = "http://localhost:5173"
 
 const corsOptions = {
